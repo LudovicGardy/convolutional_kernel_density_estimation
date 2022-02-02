@@ -1,0 +1,229 @@
+{
+    "Title": "Epileptic events database",
+    "Authors": {
+        "Names": [
+            "Ludovic GARDY",
+            "Jonathan CUROT",
+            "Christophe HURTER",
+            "Emmanuel J. BARBEAU"
+        ],
+        "Titles": [
+            "MSc - Database engineer",
+            "MD (Epileptologist) - PhD",
+            "PhD - Project Investigator",
+            "PhD - Project Investigator"
+        ],
+        "emails": [
+            "ludovic.gardy@cnrs.fr",
+            "jonathan.curot@cnrs.fr",
+            "christophe.hurter@enac.fr",
+            "emmanuel.barbeau@cnrs.fr"
+        ]
+    },
+    "last_event_done_(idx)": 0,
+    "events_info": [
+        {
+            "ID": 1,
+            "type": "FR R3 simul-9",
+            "patient_num": "999",
+            "chan_type": "micro",
+            "chan_name": "simul",
+            "sampling_frequency": 5000,
+            "eventTime_inFilename_(s)": 0.0,
+            "event_duration_(s)": 0.0,
+            "extracted_signal_duration_(ms)": 400.0,
+            "scale_unit": "uV",
+            "filename": "sub-999_ses-MicroSimul01_task-TestForReview_run-01_ieeg.edf",
+            "eventOnset_inDatabase_(ms)": null,
+            "eventEnd_inDatabase_(ms)": null,
+            "Detection_predictions": [
+                0.00,
+                0.00
+            ],
+            "predicted_type": "Test",
+            "Note": "freq = 250; numcycles = 9"
+        },
+        {
+            "ID": 2,
+            "type": "FR R3 simul-5",
+            "patient_num": "999",
+            "chan_type": "micro",
+            "chan_name": "simul",
+            "sampling_frequency": 5000,
+            "eventTime_inFilename_(s)": 0.0,
+            "event_duration_(s)": 0.0,
+            "extracted_signal_duration_(ms)": 400.0,
+            "scale_unit": "uV",
+            "filename": "sub-999_ses-MicroSimul01_task-TestForReview_run-01_ieeg.edf",
+            "eventOnset_inDatabase_(ms)": null,
+            "eventEnd_inDatabase_(ms)": null,
+            "Detection_predictions": [
+                0.00,
+                0.00
+            ],
+            "predicted_type": "Test",
+            "Note": "freq = 250; numcycles = 5"
+        },
+        {
+            "ID": 3,
+            "type": "Transient R3 simul",
+            "patient_num": "999",
+            "chan_type": "micro",
+            "chan_name": "simul",
+            "sampling_frequency": 5000,
+            "eventTime_inFilename_(s)": 0.0,
+            "event_duration_(s)": 0.0,
+            "extracted_signal_duration_(ms)": 400.0,
+            "scale_unit": "uV",
+            "filename": "sub-999_ses-MicroSimul01_task-TestForReview_run-01_ieeg.edf",
+            "eventOnset_inDatabase_(ms)": null,
+            "eventEnd_inDatabase_(ms)": null,
+            "Detection_predictions": [
+                0.00,
+                0.00
+            ],
+            "predicted_type": "Test"
+        },
+        {
+            "ID": 4,
+            "type": "FR Ludo simul-20",
+            "patient_num": "999",
+            "chan_type": "micro",
+            "chan_name": "simul",
+            "sampling_frequency": 5000,
+            "eventTime_inFilename_(s)": 0.0,
+            "event_duration_(s)": 0.0,
+            "extracted_signal_duration_(ms)": 400.0,
+            "scale_unit": "uV",
+            "filename": "sub-999_ses-MicroSimul01_task-TestForReview_run-01_ieeg.edf",
+            "eventOnset_inDatabase_(ms)": null,
+            "eventEnd_inDatabase_(ms)": null,
+            "Detection_predictions": [
+                0.00,
+                0.00
+            ],
+            "predicted_type": "Test",
+            "Note": "freq = 300; numcycles = 20"
+        },
+        {
+            "ID": 5,
+            "type": "Spk-alone",
+            "patient_num": "02",
+            "chan_type": "macro",
+            "chan_name": "of1-of2",
+            "sampling_frequency": 2048,
+            "eventTime_inFilename_(s)": 401.2,
+            "event_duration_(s)": 0.0,
+            "extracted_signal_duration_(ms)": 400.0,
+            "scale_unit": "uV",
+            "filename": "sub-002_ses-MacroBipolar01_task-EPIFAR_run-01_ieeg.edf",
+            "eventOnset_inDatabase_(ms)": null,
+            "eventEnd_inDatabase_(ms)": null,
+            "Detection_predictions": [
+                0.00,
+                0.00
+            ],
+            "predicted_type": "Test"
+        },
+        {
+            "ID": 6,
+            "type": "Spk-alone",
+            "patient_num": "02",
+            "chan_type": "macro",
+            "chan_name": "of2-of3",
+            "sampling_frequency": 2048,
+            "eventTime_inFilename_(s)": 401.2,
+            "event_duration_(s)": 0.0,
+            "extracted_signal_duration_(ms)": 400.0,
+            "scale_unit": "uV",
+            "filename": "sub-002_ses-MacroBipolar01_task-EPIFAR_run-01_ieeg.edf",
+            "eventOnset_inDatabase_(ms)": null,
+            "eventEnd_inDatabase_(ms)": null,
+            "Detection_predictions": [
+                0.00,
+                0.00
+            ],
+            "predicted_type": "Test"
+        },
+        {
+            "ID": 7,
+            "type": "Spk-alone",
+            "patient_num": "02",
+            "chan_type": "macro",
+            "chan_name": "op3-op4",
+            "sampling_frequency": 2048,
+            "eventTime_inFilename_(s)": 503.6,
+            "event_duration_(s)": 0.0,
+            "extracted_signal_duration_(ms)": 400.0,
+            "scale_unit": "uV",
+            "filename": "sub-002_ses-MacroBipolar01_task-EPIFAR_run-01_ieeg.edf",
+            "eventOnset_inDatabase_(ms)": null,
+            "eventEnd_inDatabase_(ms)": null,
+            "Detection_predictions": [
+                0.00,
+                0.00
+            ],
+            "predicted_type": "Test"
+        },
+        {
+            "ID": 8,
+            "type": "Spk-alone",
+            "patient_num": "02",
+            "chan_type": "macro",
+            "chan_name": "of1-of2",
+            "sampling_frequency": 2048,
+            "eventTime_inFilename_(s)": 503.6,
+            "event_duration_(s)": 0.0,
+            "extracted_signal_duration_(ms)": 400.0,
+            "scale_unit": "uV",
+            "filename": "sub-002_ses-MacroBipolar01_task-EPIFAR_run-01_ieeg.edf",
+            "eventOnset_inDatabase_(ms)": null,
+            "eventEnd_inDatabase_(ms)": null,
+            "Detection_predictions": [
+                0.00,
+                0.00
+            ],
+            "predicted_type": "Test"
+        },
+        {
+            "ID": 9,
+            "type": "Spk-alone",
+            "patient_num": "02",
+            "chan_type": "macro",
+            "chan_name": "of2-of3",
+            "sampling_frequency": 2048,
+            "eventTime_inFilename_(s)": 503.6,
+            "event_duration_(s)": 0.0,
+            "extracted_signal_duration_(ms)": 400.0,
+            "scale_unit": "uV",
+            "filename": "sub-002_ses-MacroBipolar01_task-EPIFAR_run-01_ieeg.edf",
+            "eventOnset_inDatabase_(ms)": null,
+            "eventEnd_inDatabase_(ms)": null,
+            "Detection_predictions": [
+                0.00,
+                0.00
+            ],
+            "predicted_type": "Test"
+        },
+        {
+            "ID": 10,
+            "type": "Spk-alone",
+            "patient_num": "02",
+            "chan_type": "macro",
+            "chan_name": "op3-op4",
+            "sampling_frequency": 2048,
+            "eventTime_inFilename_(s)": 505.5,
+            "event_duration_(s)": 0.0,
+            "extracted_signal_duration_(ms)": 400.0,
+            "scale_unit": "uV",
+            "filename": "sub-002_ses-MacroBipolar01_task-EPIFAR_run-01_ieeg.edf",
+            "eventOnset_inDatabase_(ms)": null,
+            "eventEnd_inDatabase_(ms)": null,
+            "Detection_predictions": [
+                0.00,
+                0.00
+            ],
+            "predicted_type": "Test"
+        }
+    ]
+}
