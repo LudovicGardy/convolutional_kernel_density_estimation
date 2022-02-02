@@ -25,12 +25,12 @@ We propose some simulated data to validate our procedure with a known frequency,
 # Methods
 Figure 2 shows how the convolved image (2D) is drawn from the raw signal (1D). A: Convolution process. B: Full process.
 
-![](illustrations/Methods.jpg)
+![](illustrations/Methods.png)
 
 # Results
 Figure 3 shows the result of the full process. The timeseries used as input is an IED called "event_5" in the data sample we provide with this program.
 
-![](illustrations/Results.jpg)
+![](illustrations/Results.png)
 
 # References
 Gardy, L., Barbeau, E., and Hurter, C. (2020). Automatic detection of epileptic spikes in intracerebral eeg with convolutional kernel density estimation. In 4th International Conference on Human Computer Interaction Theory and Applications, pages 101–109. SCITEPRESS-Science and Technology Publications. https://doi.org/10.5220/0008877601010109
