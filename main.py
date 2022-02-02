@@ -1,18 +1,17 @@
-"""
-Creation date: 2019, March 20
+'''
+Creation date: 2018, August
 Author: L. Gardy
 E-mail: ludovic.gardy@cnrs.fr
 Encoding: UTF-8
 
 Related publication
 --------------------
-Title: Automatic Detection of Epileptic Spikes in Intracerebral EEG with Convolutional Kernel Density Estimation.
-Authors: L. Gardy, E.J. Barbeau, C. Hurter.
-Conference journal: Proceedings of the 15th International Joint Conference on Computer Vision,
-Imaging and Computer Graphics Theory and Applications - Volume 2:
-HUCAPP, ISBN 978-989-758-402-2, ISSN 2184-4321, pages 101-109.
+Title: Automatic detection of epileptic spikes in intracerebral eeg with convolutional kernel density estimation.
+Authors: Gardy L., Barbeau E.J., Hurter, C.
+4th International Conference on Human Computer Interaction Theory and Applications, pages 101–109. 
+SCITEPRESS-Science and Technology Publications
 DOI: https://doi.org/10.5220/0008877601010109
-"""
+'''
 
 import numpy as np
 import os
@@ -59,7 +58,7 @@ def create_gaussian_kernel(kernlen=21, nsig=3):
     kern1d = np.diff(st.norm.cdf(x))
     kernel_raw = np.sqrt(np.outer(kern1d, kern1d))
     kernel = kernel_raw/kernel_raw.sum()
-
+    
     return(kernel)
 
 def create_custom_kernel():
@@ -77,8 +76,8 @@ def create_custom_kernel():
 
     kernel = np.array([[0, 1, 0],
                        [0, -4, 0],
-                       [0, 1, 0]])
-
+                       [0, 1, 0]])       
+    
     return(kernel)
 
 def load_timeseries(timeseries_folderpath, timeserie_filename, sep = ";"):
@@ -125,8 +124,8 @@ def from_1D_to_2D(timeseries, bandwidth = 3):
     '''
 
     image_2D = []
-    miny = (min(timeseries) * 1)
-    maxy = (max(timeseries) * 1)
+    miny = (min(timeseries) * 1)  
+    maxy = (max(timeseries) * 1) 
     X_range = np.linspace( miny, maxy, 150)[:, np.newaxis]
 
     for _val in timeseries:
@@ -141,8 +140,8 @@ def from_1D_to_2D(timeseries, bandwidth = 3):
 
 def convolve_2D_image(image_2D, convolution = "gaussian cutstom"):
     '''
-    Returns a convolved image (2D numpy array).
-    Kernels that will be used are either predefined or
+    Returns a convolved image (2D numpy array). 
+    Kernels that will be used are either predefined or 
     defined using the function defined above.
 
     Parameters
@@ -161,10 +160,10 @@ def convolve_2D_image(image_2D, convolution = "gaussian cutstom"):
         image_2D_convolved = convolve(image_2D, Gaussian2DKernel(x_stddev=2))
     elif convolution == "gaussian custom":
         k = create_gaussian_kernel()
-        image_2D_convolved = ndimage.filters.convolve(image_2D, k, mode='nearest')
+        image_2D_convolved = ndimage.filters.convolve(image_2D, k, mode='nearest')         
     elif convolution == "custom":
         k = create_custom_kernel()
-        image_2D_convolved = ndimage.filters.convolve(image_2D, k, mode='nearest')
+        image_2D_convolved = ndimage.filters.convolve(image_2D, k, mode='nearest')    
     else:
         image_2D_convolved = convolve(image_2D, Gaussian2DKernel(x_stddev=2))
 
