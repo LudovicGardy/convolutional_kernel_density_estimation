@@ -13,7 +13,7 @@ Please, open _**`main.py`**_ and change the path inside to use the program.
 ```
 ### User should change these information in the script (main.py).
 
-root = r"~/GardyL/Python/CKDE"
+root = r"~/CKDE"
 event_num = 5
 ```
 
