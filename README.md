@@ -11,10 +11,31 @@ Please, open _**`main.py`**_ and change the path inside to use the program.
 
 # Procedure example (main.py)
 ```
-### User should change these information in the script (main.py).
-
+### Init parameters (root is the path to the folder you have downloaded)
 root = r"~/CKDE"
 event_num = 5
+
+### Get a timeseries filepath (look in the folder you have downloaded)
+timeseries_folderpath =  os.path.join(root, "test_events_database\events_signal_data")
+timeserie_filename = f"event_{event_num}.txt"
+
+### Load a timeseries from the sample data provided with this program (1D)
+signal = load_timeseries(timeseries_folderpath, timeserie_filename) # or,
+#signal = random_signal_simulation()
+
+### Get the timeseries info
+json_dict = json.load(open(os.path.join(root,"test_events_database\events_info.json")))
+sfreq = json_dict["events_info"][event_num]["sampling_frequency"]
+
+### Convert it to a 2D signal
+image_2D = from_1D_to_2D(signal, bandwidth = 1)
+
+### Convolve the 2D signal
+image_2D_convolved = convolve_2D_image(image_2D, convolution = "gaussian custom")
+
+### Plot result
+fig_name = "Epileptic spike (signal duration: 400 ms) \n\n[1] raw [2] imaged [3] convoluted"
+pot_result(signal, image_2D, image_2D_convolved, fig_name)
 ```
 
 # Some information about the dataset
