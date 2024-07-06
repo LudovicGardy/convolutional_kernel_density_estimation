@@ -57,6 +57,4 @@ Figure 3 shows the result of the full process. The timeseries used as input is a
 Gardy, L., Barbeau, E., and Hurter, C. (2020). Automatic detection of epileptic spikes in intracerebral eeg with convolutional kernel density estimation. In 4th International Conference on Human Computer Interaction Theory and Applications, pages 101–109. SCITEPRESS-Science and Technology Publications. https://doi.org/10.5220/0008877601010109
 
 # Dependencies
-- sklearn==0.22.2.post1
-- astropy==4.0.1
-- scipy==1.4.1
+See requirements.txt

@@ -36,11 +36,12 @@ def random_signal_simulation(x = np.linspace(1, 10)):
     fx = np.sin(x) + np.random.normal(scale=0.1, size=len(x))
 
     plt.plot(x, fx)
+    plt.tight_layout()
     plt.show()
 
-    return(x, fx)
+    return x, fx
 
-def create_gaussian_kernel(kernlen=21, nsig=3):
+def create_gaussian_kernel(kernlen:int=21, nsig:int=3):
     """
     Returns a gaussian kernel (2D array).
 
@@ -59,7 +60,7 @@ def create_gaussian_kernel(kernlen=21, nsig=3):
     kernel_raw = np.sqrt(np.outer(kern1d, kern1d))
     kernel = kernel_raw/kernel_raw.sum()
     
-    return(kernel)
+    return kernel
 
 def create_custom_kernel():
     """
@@ -80,7 +81,7 @@ def create_custom_kernel():
     
     return(kernel)
 
-def load_timeseries(timeseries_folderpath, timeserie_filename, sep = ";"):
+def load_timeseries(timeseries_folderpath:str, timeserie_filename:str, sep:str= ";"):
     '''
     Returns a timeseries from the text file where it is stored.
 
@@ -96,21 +97,18 @@ def load_timeseries(timeseries_folderpath, timeserie_filename, sep = ";"):
         Semilicon by default
     '''
 
-    ### Load & read data
-    with open( os.path.join(timeseries_folderpath, timeserie_filename) , 'r+') as f:
-        row = f.readlines()
-
-    ### Raw signal
-    timeseries = []
-    [timeseries.append(float(i)) for i in row[0].split(sep)]
-    timeseries = np.array(timeseries).astype('float64')
+    file_path = os.path.join(timeseries_folderpath, timeserie_filename)
+    with open(file_path, 'r') as f:
+        row = f.readline().strip()
+    timeseries = np.array(row.split(sep), dtype=np.float64)
 
     plt.plot(timeseries)
+    plt.tight_layout()
     plt.show()
 
-    return(timeseries)
+    return timeseries
 
-def from_1D_to_2D(timeseries, bandwidth = 3):
+def from_1D_to_2D(timeseries:np.array, bandwidth:int, resolution:int):
     '''
     Returns an image (2D numpy array).
 
@@ -123,11 +121,10 @@ def from_1D_to_2D(timeseries, bandwidth = 3):
         Size of the filter
     '''
 
-    image_2D = []
-    miny = (min(timeseries) * 1)  
-    maxy = (max(timeseries) * 1) 
-    X_range = np.linspace( miny, maxy, 150)[:, np.newaxis]
+    miny, maxy = (min(timeseries) * 1), (max(timeseries) * 1)
+    X_range = np.linspace(miny, maxy, resolution)[:, np.newaxis]
 
+    image_2D = []
     for _val in timeseries:
         _val_reshaped = np.array(_val[np.newaxis]).reshape(-1,1)
         kde = KernelDensity(kernel="tophat", bandwidth=bandwidth).fit(_val_reshaped)
@@ -136,9 +133,9 @@ def from_1D_to_2D(timeseries, bandwidth = 3):
 
     image_2D = np.rot90(np.array(image_2D))
 
-    return(image_2D)
+    return image_2D
 
-def convolve_2D_image(image_2D, convolution = "gaussian cutstom"):
+def convolve_2D_image(image_2D:np.array, convolution:str="gaussian custom"):
     '''
     Returns a convolved image (2D numpy array). 
     Kernels that will be used are either predefined or 
@@ -160,16 +157,16 @@ def convolve_2D_image(image_2D, convolution = "gaussian cutstom"):
         image_2D_convolved = convolve(image_2D, Gaussian2DKernel(x_stddev=2))
     elif convolution == "gaussian custom":
         k = create_gaussian_kernel()
-        image_2D_convolved = ndimage.filters.convolve(image_2D, k, mode='nearest')         
+        image_2D_convolved = ndimage.convolve(image_2D, k, mode='nearest')         
     elif convolution == "custom":
         k = create_custom_kernel()
-        image_2D_convolved = ndimage.filters.convolve(image_2D, k, mode='nearest')    
+        image_2D_convolved = ndimage.convolve(image_2D, k, mode='nearest')    
     else:
         image_2D_convolved = convolve(image_2D, Gaussian2DKernel(x_stddev=2))
 
     return(image_2D_convolved)
 
-def pot_result(signal, image_2D, image_2D_convolved, fig_name):
+def pot_result(signal:np.array, image_2D:np.array, image_2D_convolved:np.array, fig_name:str):
     '''
     Display a 3-rows figure.
 
@@ -191,38 +188,31 @@ def pot_result(signal, image_2D, image_2D_convolved, fig_name):
     ax[1].imshow(image_2D, aspect = "auto")
     ax[2].imshow(image_2D_convolved, aspect = "auto")
 
-    ax[0].get_xaxis().set_visible(False)
-    ax[0].get_yaxis().set_visible(False)
-
-    ax[1].get_xaxis().set_visible(False)
-    ax[1].get_yaxis().set_visible(False)
-
-    ax[2].get_xaxis().set_visible(False)
-    ax[2].get_yaxis().set_visible(False)
-    ax[2].set_xticks([])
-
+    for axis in ax:
+        axis.axis('off')
+        
+    plt.tight_layout()
     plt.show()
 
 if __name__ == "__main__":
 
     ### Init parameters (root is the path to the folder you have downloaded)
-    root = r"F:\GardyL\Python\CKDE"
-    event_num = 5
+    exemple_event_to_plot = 5
 
     ### Get a timeseries filepath (look in the folder you have downloaded)
-    timeseries_folderpath =  os.path.join(root, "test_events_database\events_signal_data")
-    timeserie_filename = f"event_{event_num}.txt"
+    timeseries_folderpath =  r"test_events_database/events_signal_data"
+    timeserie_filename = f"event_{exemple_event_to_plot}.txt"
 
     ### Load a timeseries from the sample data provided with this program (1D)
     signal = load_timeseries(timeseries_folderpath, timeserie_filename) # or,
     #signal = random_signal_simulation()
 
     ### Get the timeseries info
-    json_dict = json.load(open(os.path.join(root,"test_events_database\events_info.json")))
-    sfreq = json_dict["events_info"][event_num]["sampling_frequency"]
+    json_dict = json.load(open(r"test_events_database/events_info.json"))
+    sfreq = json_dict["events_info"][exemple_event_to_plot]["sampling_frequency"]
 
     ### Convert it to a 2D signal
-    image_2D = from_1D_to_2D(signal, bandwidth = 1)
+    image_2D = from_1D_to_2D(signal, bandwidth=1, resolution=150)
 
     ### Convolve the 2D signal
     image_2D_convolved = convolve_2D_image(image_2D, convolution = "gaussian custom")
