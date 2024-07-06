@@ -1,6 +1,10 @@
 ### Ignore these folders
 __pycache__/
 .vs/
+.venv/
+.mypy_cache/
+.idea/
 
 ### Ignore these files
 test.py
+.DS_Store
