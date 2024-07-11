@@ -19,16 +19,6 @@ Please, open _**`main.py`**_ and change the path inside to use the program.
 - Python 3.11
 - Python libraries: see requirements.txt
 
-### Instructions
-
-Clone the repository and install the necessary dependencies:
-
-```bash
-git clone <repository_url>
-cd Custom_colormaps
-pip install -r requirements.txt
-```
-
 ## Usage
 
 ```python
