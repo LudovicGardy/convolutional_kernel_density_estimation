@@ -13,14 +13,14 @@ SCITEPRESS-Science and Technology Publications
 DOI: https://doi.org/10.5220/0008877601010109
 '''
 
-import numpy as np
-import os
+from astropy.convolution import convolve, Gaussian2DKernel
 from sklearn.neighbors import KernelDensity
 import matplotlib.pyplot as plt
-from astropy.convolution import convolve, Gaussian2DKernel
 from scipy import ndimage
 import scipy.stats as st
+import numpy as np
 import json
+import os
 
 def random_signal_simulation(x = np.linspace(1, 10)):
     """
@@ -166,7 +166,7 @@ def convolve_2D_image(image_2D:np.array, convolution:str="gaussian custom"):
 
     return(image_2D_convolved)
 
-def pot_result(signal:np.array, image_2D:np.array, image_2D_convolved:np.array, fig_name:str):
+def plot_result(signal:np.array, image_2D:np.array, image_2D_convolved:np.array, fig_name:str):
     '''
     Display a 3-rows figure.
 
@@ -219,4 +219,4 @@ if __name__ == "__main__":
 
     ### Plot result
     fig_name = "Epileptic spike (signal duration: 400 ms) \n\n[1] raw [2] imaged [3] convoluted"
-    pot_result(signal, image_2D, image_2D_convolved, fig_name)
+    plot_result(signal, image_2D, image_2D_convolved, fig_name)
