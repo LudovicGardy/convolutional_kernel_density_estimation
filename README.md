@@ -16,7 +16,7 @@ User can then apply filters, like a low-pass filter, to isolate low density even
 - Python 3.11
 - Python libraries
     ```sh
-    pip install -r requiremetns.txt
+    pip install -r requirements.txt
     ```
 
 ## 📝 Usage
