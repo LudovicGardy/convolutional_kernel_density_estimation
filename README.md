@@ -1,6 +1,6 @@
 # Convolutional Kernel Density Estimation (CKDE)
 
-## Description
+## 📄 Description
 The Convolutional Kernel Density Estimation (CKDE) is a method that transforms EEG signals into images and applies a convolution filter to improve the visualization and automatic detection of pathological events such as interictal epileptic spikes (IESs). More details can be found in published scientific paper [[L. Gardy et al., 2019](https://doi.org/10.5220/0008877601010109)] and in [[doctoral thesis of L. Gardy](http://thesesups.ups-tlse.fr/5164/1/2021TOU30190.pdf)].
 
 With a time series as input, the algorithm performs the following steps:
@@ -10,17 +10,16 @@ With a time series as input, the algorithm performs the following steps:
 
 User can then apply filters, like a low-pass filter, to isolate low density events, such as IEDs.
 
-```sh
-python main.py  # Runs the script
-```
-
-## Installation
+## ⚒️ Installation
 
 ### Prerequisites
 - Python 3.11
-- Python libraries: see requirements.txt
+- Python libraries
+    ```sh
+    pip install -r requiremetns.txt
+    ```
 
-## Usage
+## 📝 Usage
 ```python
 ### Get a timeseries filepath (look in the folder you have downloaded)
 timeseries_folderpath = r"data\events_signal_data"
@@ -45,6 +44,10 @@ fig_name = "Epileptic spike (signal duration: 400 ms) \n\n[1] raw [2] imaged [3]
 plot_result(signal, image_2D, image_2D_convolved, fig_name)
 ```
 
+```sh
+python main.py  # Runs the script
+```
+
 ### Input data
 We propose some simulated data to validate our procedure with a known frequency, duration and position. This database is structured as shown in figure 1. User can either use these data, use his own, or simulate some. A signal simulation function is also provided in the program.
 
@@ -60,10 +63,9 @@ Figure 3 shows the result of the full process. The timeseries used as input is a
 
 ![](images/image3.png)
 
-## References
+## 📚 References
 Gardy, L., Barbeau, E., and Hurter, C. (2020). Automatic detection of epileptic spikes in intracerebral eeg with convolutional kernel density estimation. In 4th International Conference on Human Computer Interaction Theory and Applications, pages 101–109. SCITEPRESS-Science and Technology Publications. https://doi.org/10.5220/0008877601010109
 
-
-## Author
+## 👤 Author
 - LinkedIn: [Ludovic Gardy](https://www.linkedin.com/in/ludovic-gardy/)
 - Doctoral thesis: [PDF](http://thesesups.ups-tlse.fr/5164/1/2021TOU30190.pdf)
