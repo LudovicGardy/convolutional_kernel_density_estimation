@@ -200,7 +200,7 @@ if __name__ == "__main__":
     exemple_event_to_plot = 5
 
     ### Get a timeseries filepath (look in the folder you have downloaded)
-    timeseries_folderpath =  r"data/events_signal_data"
+    timeseries_folderpath =  r"input_data/events_signal_data"
     timeserie_filename = f"event_{exemple_event_to_plot}.txt"
 
     ### Load a timeseries from the sample data provided with this program (1D)
@@ -208,7 +208,7 @@ if __name__ == "__main__":
     #signal = random_signal_simulation()
 
     ### Get the timeseries info
-    meta_data = json.load(open(r"data/events_info.json"))
+    meta_data = json.load(open(r"input_data/events_info.json"))
     sfreq = meta_data["events_info"][exemple_event_to_plot]["sampling_frequency"]
 
     ### Convert it to a 2D signal

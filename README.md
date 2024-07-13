@@ -22,7 +22,7 @@ User can then apply filters, like a low-pass filter, to isolate low density even
 ## 📝 Usage
 ```python
 ### Get a timeseries filepath (look in the folder you have downloaded)
-timeseries_folderpath = r"data\events_signal_data"
+timeseries_folderpath = r"input_data\events_signal_data"
 timeserie_filename = f"event_{event_num}.txt"
 
 ### Load a timeseries from the sample data provided with this program (1D)
@@ -30,7 +30,7 @@ signal = load_timeseries(timeseries_folderpath, timeserie_filename) # or,
 #signal = random_signal_simulation()
 
 ### Get the timeseries info
-meta_data = json.load(open(r"data\events_info.json"))
+meta_data = json.load(open(r"input_data\events_info.json"))
 sfreq = meta_data["events_info"][event_num]["sampling_frequency"]
 
 ### Convert it to a 2D signal
