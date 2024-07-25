@@ -5,10 +5,10 @@ The Convolutional Kernel Density Estimation (CKDE) is a method that transforms E
 
 With a time series as input, the algorithm performs the following steps:
 - Transforms the timeseries into an image
-- Convolves this image
-- [Optional] Filters the convolved image to isolate epileptic spikes
+- Convolves the non-null pixels of the image image, which represent the time series portion baiscally
+- [Optional] Filters the convolved image to isolate epileptic spikes. Not included here because any basic filtering method will work like a low-pass filter, to isolate low density events, such as IEDs.
 
-User can then apply filters, like a low-pass filter, to isolate low density events, such as IEDs.
+
 
 ## ⚒️ Installation
 
@@ -20,7 +20,13 @@ User can then apply filters, like a low-pass filter, to isolate low density even
     ```
 
 ## 📝 Usage
+
+### main.ipynb
+
 ```python
+### For the example, select the 5th event in the dataset
+event_num =  5 
+
 ### Get a timeseries filepath (look in the folder you have downloaded)
 timeseries_folderpath = r"input_data\events_signal_data"
 timeserie_filename = f"event_{event_num}.txt"
@@ -39,27 +45,27 @@ image_2D = from_1D_to_2D(signal, bandwidth = 1)
 ### Convolve the 2D signal
 image_2D_convolved = convolve_2D_image(image_2D, convolution = "gaussian custom")
 
-### Plot result
+### Plot summary
 fig_name = "Epileptic spike (signal duration: 400 ms) \n\n[1] raw [2] imaged [3] convoluted"
-plot_result(signal, image_2D, image_2D_convolved, fig_name)
-```
-
-```sh
-python main.py  # Runs the script
+plot_summary(signal, image_2D, image_2D_convolved, fig_name)
 ```
 
 ### Input data
-We propose some simulated data to validate our procedure with a known frequency, duration and position. This database is structured as shown in figure 1. User can either use these data, use his own, or simulate some. A signal simulation function is also provided in the program.
+We propose some simulated data to validate our procedure with a known frequency, duration and position. This database is structured as shown in **Figure 1**. User can either use these data, use his own, or simulate some. A signal simulation function is also provided in the program.
 
-![](images/image1.jpg)
+<!-- ![](images/image1.jpg) -->
 
 ### Methods
-Figure 2 shows how the convolved image (2D) is drawn from the raw signal (1D). A: Convolution process. B: Full process.
+**Figure 2** shows how the convolved image (2D) is drawn from the raw signal (1D). A: Convolution process. B: Full process.
 
-![](images/image2.png)
+| ![Image1](images/image1.jpg) | ![Image2](images/image2.png) |
+|:---------------------:|:---------------------:|
+|**Figure 1. Input Data**|**Figure 2. CKDE workflow**|
+
+<!-- ![](images/image2.png) -->
 
 ### Results
-Figure 3 shows the result of the full process. The timeseries used as input is an IED called "event_5" in the data sample we provide with this program.
+**Figure 3** below, shows the result of the full process. The timeseries used as input is an IED called "event_5" in the data sample we provide with this program.
 
 ![](images/image3.png)
 
