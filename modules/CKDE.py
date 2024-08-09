@@ -151,7 +151,9 @@ def from_1D_to_2D(
 
 
 def convolve_2D_image(
-    image_2D: np.ndarray, convolution: str = "gaussian custom", plot_result: bool = False
+    image_2D: np.ndarray,
+    convolution: str = "gaussian custom",
+    plot_result: bool = False,
 ) -> np.ndarray:
     """
     Returns a convolved image (2D numpy array).
@@ -191,7 +193,10 @@ def convolve_2D_image(
 
 
 def plot_summary(
-    signal: np.ndarray, image_2D: np.ndarray, image_2D_convolved: np.ndarray, fig_name: str
+    signal: np.ndarray,
+    image_2D: np.ndarray,
+    image_2D_convolved: np.ndarray,
+    fig_name: str,
 ) -> None:
     """
     Display a 3-rows figure.
