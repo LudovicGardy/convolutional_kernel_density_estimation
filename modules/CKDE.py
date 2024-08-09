@@ -23,7 +23,7 @@ from scipy import ndimage
 from sklearn.neighbors import KernelDensity
 
 
-def random_signal_simulation(x=np.linspace(1, 10)):
+def random_signal_simulation(x: np.ndarray = np.linspace(1, 10)) -> tuple:
     """
     Returns a random timeseries.
 
@@ -43,7 +43,7 @@ def random_signal_simulation(x=np.linspace(1, 10)):
     return x, fx
 
 
-def create_gaussian_kernel(kernlen: int = 21, nsig: int = 3):
+def create_gaussian_kernel(kernlen: int = 21, nsig: int = 3) -> np.ndarray:
     """
     Returns a gaussian kernel (2D array).
 
@@ -65,7 +65,7 @@ def create_gaussian_kernel(kernlen: int = 21, nsig: int = 3):
     return kernel
 
 
-def create_custom_kernel():
+def create_custom_kernel() -> np.ndarray:
     """
     Returns a custom kernel (2D array).
 
@@ -85,7 +85,7 @@ def create_custom_kernel():
 
 def load_timeseries(
     timeseries_folderpath: str, timeserie_filename: str, sep: str = ";"
-):
+) -> np.ndarray:
     """
     Returns a timeseries from the text file where it is stored.
 
@@ -115,8 +115,8 @@ def load_timeseries(
 
 
 def from_1D_to_2D(
-    timeseries: np.array, bandwidth: int, resolution: int, plot_result: bool = False
-):
+    timeseries: np.ndarray, bandwidth: int, resolution: int, plot_result: bool = False
+) -> np.ndarray:
     """
     Returns an image (2D numpy array).
 
@@ -151,8 +151,8 @@ def from_1D_to_2D(
 
 
 def convolve_2D_image(
-    image_2D: np.array, convolution: str = "gaussian custom", plot_result: bool = False
-):
+    image_2D: np.ndarray, convolution: str = "gaussian custom", plot_result: bool = False
+) -> np.ndarray:
     """
     Returns a convolved image (2D numpy array).
     Kernels that will be used are either predefined or
@@ -191,8 +191,8 @@ def convolve_2D_image(
 
 
 def plot_summary(
-    signal: np.array, image_2D: np.array, image_2D_convolved: np.array, fig_name: str
-):
+    signal: np.ndarray, image_2D: np.ndarray, image_2D_convolved: np.ndarray, fig_name: str
+) -> None:
     """
     Display a 3-rows figure.
 
